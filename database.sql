@@ -1,0 +1,6 @@
+CREATE TABLE TODO List (
+    "id" SERIAL PRIMARY KEY,
+    "Task" VARCHAR(100) NOT NULL,
+    "Completed" BOOLEAN DEFAULT FALSE
+    "Not Completed" BOOLEAN DEFAULT TRUE
+);
