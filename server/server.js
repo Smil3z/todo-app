@@ -8,7 +8,7 @@ app.use(express.json()); // needed for axios requests
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/TODOList', todoRouter);
+app.use('/todolist', todoRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {
