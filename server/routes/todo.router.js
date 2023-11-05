@@ -48,13 +48,16 @@ router.put('/:id', (req, res) => {
     });
 });
 // DELETE
-router.delete(',:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log('req.params', req.params);
-    let queryText = 'DELETE FROM "todolist" where "id"';
+    let queryText = 'DELETE FROM "todolist" where "id" = $1';
     pool.query(queryText, [req.params.id])
-        .then((reult) => {
+        .then((result) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Something wrong with DELETE', error);
             res.sendStatus(500);
-        })
+        });
 });
 
 module.exports = router;

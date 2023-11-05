@@ -16,7 +16,7 @@ function TodoForm(props) {
             console.log(response.data);
             setTask('');
             markCompleted('');
-            props.getTodolistList();
+            props.getTodoList();
         }).catch((error) => {
             console.error(error);
             alert('Something went wrong!!');
@@ -24,7 +24,7 @@ function TodoForm(props) {
     }
     return(
         <>
-            <h2>Todo ListForm</h2>
+            <h2>Todo List</h2>
             <form onSubmit={sendTodolistToServer}>
                 Task: <input value={task} onChange={(e) => setTask(e.target.value)} />
                     <p>{task}</p>
@@ -36,3 +36,5 @@ function TodoForm(props) {
         </>
     )
 }
+
+export default TodoForm;

@@ -1,7 +1,11 @@
 // useEffect is a function provided by React
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import TodolistItem from '../TodolistItem/TodolistItem.jsx';
+import TodoForm from '../TodoForm/TodoForm.jsx';
+import TodoList from '../TodoList/TodoList.jsx';
+import TodoItem from '../TodoItem/TodoItem.jsx';
+import {Container} from "@mui/material";
+
 
 function App () {
   // useState creates a variable that will automatically update on
@@ -31,13 +35,12 @@ function App () {
   }
 
   return (
-    <div>
-      <h1>TO DO APP</h1>
-      {/* TODO: Replace with .map, stringify is for debugging only. */}
-      {JSON.stringify(todoList)}
-    </div>
+    <Container maxWidth='lg'>
+      <TodoForm getTodoList={getTodoList}/>
+      <TodoList getTodoList={getTodoList} todoList={todoList}/>
+    </Container>
   );
 
 }
 
-export default App
+export default App;
