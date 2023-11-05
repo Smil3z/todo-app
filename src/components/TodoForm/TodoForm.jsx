@@ -9,13 +9,13 @@ function TodoForm(props) {
         event.preventDefault();
 
         console.log('sendTodolistToServer', task);
-        axios.post('/todo', {
+        axios.post('/todolist', {
             task: task,
-            completed: cpmpleted,
-        }).then((responde) => {
+            completed: setCompleted,
+        }).then((response) => {
             console.log(response.data);
             setTask('');
-            markCompleted('');
+            setCompleted('');
             props.getTodoList();
         }).catch((error) => {
             console.error(error);
@@ -29,7 +29,7 @@ function TodoForm(props) {
                 Task: <input value={task} onChange={(e) => setTask(e.target.value)} />
                     <p>{task}</p>
                     <br />
-                Completed <input value={completed} onChange={(e) => markCompleted(e.target.value)}></input>
+                {/*Completed <input value={completed} onChange={(e) => setCompleted(e.target.value)}></input>*/}
                 <p>{completed}</p>
                 <button>Submit</button>
             </form>

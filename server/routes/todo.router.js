@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
 // POST
 router.post('/', (req,res) => {
     const todo = req.body;
-    const sqlText = `INSERT INTO todolist (task, completed)
-                    VALUES ($1, $2)`;
+    const sqlText = `INSERT INTO todolist (task)
+                    VALUES ($1)`;
     
-    pool.query(sqlText, [todo.task, todo.completed])
+    pool.query(sqlText, [todo.task])
         .then((result) => {
             console.log(`added task to database`, todo);
             res.sendStatus(201);
@@ -37,10 +37,11 @@ router.put('/:id', (req, res) => {
     console.log('PUT /todolist', req.params, req.body);
     let queryText =`
         UPDATE "todolist" SET "completed" = true
-        WHERE "id"
+        WHERE "id" = $1;
     `;
-    pool.query(queryText, [req.body.completed])
+    pool.query(queryText, [req.params.id])
     .then((result) => {
+        console.log('Put successful')
         res.sendStatus(200);
     }) .catch((error) => {
         console.log('error in PUT /todolist', error)

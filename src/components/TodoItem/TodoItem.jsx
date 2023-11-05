@@ -20,7 +20,7 @@ function TodoItem(props) {
     }
 
     const markComplete = () => {
-        axios.put(`/todo/${props.todo.id}`).then((response) => {
+        axios.put(`/todolist/${props.todo.id}`).then((response) => {
             props.getTodoList();
         }).catch((error) => {
             console.error(error);
