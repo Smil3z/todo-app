@@ -1,6 +1,7 @@
 // useEffect is a function provided by React
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import TodolistItem from '../TodolistItem/TodolistItem.jsx';
 
 function App () {
   // useState creates a variable that will automatically update on
@@ -25,6 +26,7 @@ function App () {
       setTodoList(response.data);
     }).catch((error) => {
       console.log('error with GET', error);
+      alert('Something went wrong');
     })
   }
 
