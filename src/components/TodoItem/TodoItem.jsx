@@ -33,13 +33,13 @@ function TodoItem(props) {
                 <Typography variant='h3'>
                     {props.todo.task}
                 </Typography>
+                {
+                    props.todo.completed === false && (
+                        <p>Not Complete</p>
+                    )
+                    }
             </CardContent>
             <CardActions sx={{ padding:'20px', float:'right'}}>
-                {/*
-                    props.todo.complete === false && (
-                    
-                    )
-                    */}
                 <Button variant="outlined" onClick={clickHandler}>Delete</Button>
                 <Button variant='contained' onClick={markComplete}>Completed</Button>
             </CardActions>
