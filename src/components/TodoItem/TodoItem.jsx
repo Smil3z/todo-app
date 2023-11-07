@@ -36,7 +36,7 @@ function TodoItem(props) {
                     <Button variant='contained' onClick={markComplete}>Completed</Button>
                 </CardActions>
                     <Typography variant='h3'>
-                        <p>{props.todo.task}</p>
+                        {props.todo.task}
                     </Typography>
                     {
                         props.todo.completed === false && (

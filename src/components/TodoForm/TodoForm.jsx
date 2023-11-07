@@ -1,5 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
+import { Grid } from "@mui/material";
+import CardActions from "@mui/material";
+import CardContent from "@mui/material";
+import Card from "@mui/material";
+import Container from "@mui/material";
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import { Padding } from "@mui/icons-material";
+import { Button } from "@mui/material";
+import { Input } from "@mui/material";
+import {TextField } from "@mui/material";
+
 
 function TodoForm(props) {
     const [task, setTask] = useState('');
@@ -25,14 +37,16 @@ function TodoForm(props) {
     return(
         <>
             <h2>Todo List</h2>
-            <form onSubmit={sendTodolistToServer}>
-                Task: <input value={task} onChange={(e) => setTask(e.target.value)} />
+            <Grid>
+                <form onSubmit={sendTodolistToServer}>
+                    Task:<TextField size="small"><Input value={task} id="outlined-basic" variant="outlined" onChange={(e) => setTask(e.target.value)} 
+                        color="secondary" focused="true"/></TextField><Button  type="submit" variant="contained" color="primary" style={{ width: "10%" }}>Submit</Button>
+        
                     <p>{task}</p>
-                    <br />
-                {/*Completed <input value={completed} onChange={(e) => setCompleted(e.target.value)}></input>*/}
-                <p>{completed}</p>
-                <button>Submit</button>
-            </form>
+                    <br/>
+                    <p>{completed}</p>
+                </form>
+            </Grid>
         </>
     )
 }
