@@ -39,10 +39,9 @@ function TodoForm(props) {
             <h2>Todo List</h2>
             <Grid>
                 <form onSubmit={sendTodolistToServer}>
-                    Task:<TextField size="small"><Input value={task} id="outlined-basic" variant="outlined" onChange={(e) => setTask(e.target.value)} 
-                        color="secondary" focused="true"/></TextField><Button  type="submit" variant="contained" color="primary" style={{ width: "10%" }}>Submit</Button>
-        
-                    <p>{task}</p>
+                    Task:<TextField size="small" value={task} id="outlined-basic" variant="outlined" onChange={(e) => setTask(e.target.value)} 
+                        color="secondary"/><Button  type="submit" variant="contained" color="primary" style={{ width: "10%" }}>Submit</Button>
+
                     <br/>
                     <p>{completed}</p>
                 </form>
