@@ -1,7 +1,5 @@
 # To-Do App
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
 ## Description
 
 This app is designed to give the user the ability to add, edit
